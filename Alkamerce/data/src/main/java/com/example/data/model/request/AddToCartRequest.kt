@@ -1,6 +1,6 @@
-package com.codewithfk.data.model.request
+package com.example.data.model.request
 
-import com.codewithfk.domain.model.request.AddCartRequestModel
+import com.example.domain.model.request.AddCartRequestModel
 import kotlinx.serialization.Serializable
 
 @Serializable

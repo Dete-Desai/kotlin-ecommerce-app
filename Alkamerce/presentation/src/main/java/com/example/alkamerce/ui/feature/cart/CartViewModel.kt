@@ -1,12 +1,12 @@
-package com.codewithfk.alkamerce.ui.feature.cart
+package com.example.alkamerce.ui.feature.cart
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.codewithfk.domain.model.CartItemModel
-import com.codewithfk.domain.usecase.DeleteProductUseCase
-import com.codewithfk.domain.usecase.GetCartUseCase
-import com.codewithfk.domain.usecase.UpdateQuantityUseCase
-import com.codewithfk.alkamerce.AlkamerceSession
+import com.example.domain.model.CartItemModel
+import com.example.domain.usecase.DeleteProductUseCase
+import com.example.domain.usecase.GetCartUseCase
+import com.example.domain.usecase.UpdateQuantityUseCase
+import com.example.alkamerce.AlkamerceSession
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -29,11 +29,11 @@ class CartViewModel(
             _uiState.value = CartEvent.Loading
             cartUseCase.execute(userDomainModel!!.id!!.toLong()).let { result ->
                 when (result) {
-                    is com.codewithfk.domain.network.ResultWrapper.Success -> {
+                    is com.example.domain.network.ResultWrapper.Success -> {
                         _uiState.value = CartEvent.Success(result.value.data)
                     }
 
-                    is com.codewithfk.domain.network.ResultWrapper.Failure -> {
+                    is com.example.domain.network.ResultWrapper.Failure -> {
                         _uiState.value = CartEvent.Error("Something went wrong!")
                     }
                 }
@@ -56,11 +56,11 @@ class CartViewModel(
             _uiState.value = CartEvent.Loading
             val result = updateQuantityUseCase.execute(cartItem,userDomainModel!!.id!!.toLong())
             when (result) {
-                is com.codewithfk.domain.network.ResultWrapper.Success -> {
+                is com.example.domain.network.ResultWrapper.Success -> {
                     _uiState.value = CartEvent.Success(result.value.data)
                 }
 
-                is com.codewithfk.domain.network.ResultWrapper.Failure -> {
+                is com.example.domain.network.ResultWrapper.Failure -> {
                     _uiState.value = CartEvent.Error("Something went wrong!")
                 }
             }
@@ -72,10 +72,10 @@ class CartViewModel(
             _uiState.value = CartEvent.Loading
             val result = deleteItem.execute(cartItem.id, 1)
             when (result) {
-                is com.codewithfk.domain.network.ResultWrapper.Success -> {
+                is com.example.domain.network.ResultWrapper.Success -> {
                     _uiState.value = CartEvent.Success(result.value.data)
                 }
-                is com.codewithfk.domain.network.ResultWrapper.Failure -> {
+                is com.example.domain.network.ResultWrapper.Failure -> {
                     _uiState.value = CartEvent.Error("Something went wrong!")
                 }
             }

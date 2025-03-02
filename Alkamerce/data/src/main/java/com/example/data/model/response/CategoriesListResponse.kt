@@ -1,6 +1,6 @@
-package com.codewithfk.data.model.response
+package com.example.data.model.response
 
-import com.codewithfk.data.model.CategoryDataModel
+import com.example.data.model.CategoryDataModel
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -8,7 +8,7 @@ data class CategoriesListResponse(
     val `data`: List<CategoryDataModel>,
     val msg: String
 ) {
-    fun toCategoriesList() = com.codewithfk.domain.model.CategoriesListModel(
+    fun toCategoriesList() = com.example.domain.model.CategoriesListModel(
         categories = `data`.map { it.toCategory() },
         msg = msg
     )

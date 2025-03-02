@@ -1,8 +1,8 @@
-package com.codewithfk.domain.repository
+package com.example.domain.repository
 
-import com.codewithfk.domain.model.AddressDomainModel
-import com.codewithfk.domain.model.OrdersListModel
-import com.codewithfk.domain.network.ResultWrapper
+import com.example.domain.model.AddressDomainModel
+import com.example.domain.model.OrdersListModel
+import com.example.domain.network.ResultWrapper
 
 interface OrderRepository {
     suspend fun placeOrder(addressDomainModel: AddressDomainModel, userId: Long): ResultWrapper<Long>

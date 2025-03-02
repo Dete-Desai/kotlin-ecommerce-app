@@ -1,9 +1,9 @@
-package com.codewithfk.alkamerce
+package com.example.alkamerce
 
 import android.app.Application
-import com.codewithfk.data.di.dataModule
-import com.codewithfk.domain.di.domainModule
-import com.codewithfk.alkamerce.di.presentationModule
+import com.example.data.di.dataModule
+import com.example.domain.di.domainModule
+import com.example.alkamerce.di.presentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

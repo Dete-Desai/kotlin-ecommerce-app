@@ -1,4 +1,4 @@
-package com.codewithfk.alkamerce.ui.feature.orders
+package com.example.alkamerce.ui.feature.orders
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -24,7 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.codewithfk.domain.model.OrdersData
+import com.example.domain.model.OrdersData
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

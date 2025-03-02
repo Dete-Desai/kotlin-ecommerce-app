@@ -1,7 +1,7 @@
-package com.codewithfk.alkamerce
+package com.example.alkamerce
 
 import android.content.Context
-import com.codewithfk.domain.model.UserDomainModel
+import com.example.domain.model.UserDomainModel
 
 class AlkamerceSession(private val context: Context) {
 

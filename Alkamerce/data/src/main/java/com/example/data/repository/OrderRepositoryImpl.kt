@@ -1,10 +1,10 @@
-package com.codewithfk.data.repository
+package com.example.data.repository
 
-import com.codewithfk.domain.model.AddressDomainModel
-import com.codewithfk.domain.model.OrdersListModel
-import com.codewithfk.domain.network.NetworkService
-import com.codewithfk.domain.network.ResultWrapper
-import com.codewithfk.domain.repository.OrderRepository
+import com.example.domain.model.AddressDomainModel
+import com.example.domain.model.OrdersListModel
+import com.example.domain.network.NetworkService
+import com.example.domain.network.ResultWrapper
+import com.example.domain.repository.OrderRepository
 
 class OrderRepositoryImpl(private val networkService: NetworkService) : OrderRepository {
     override suspend fun placeOrder(

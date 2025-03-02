@@ -1,11 +1,11 @@
-package com.codewithfk.alkamerce.ui.feature.product_details
+package com.example.alkamerce.ui.feature.product_details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.codewithfk.domain.model.request.AddCartRequestModel
-import com.codewithfk.domain.usecase.AddToCartUseCase
-import com.codewithfk.alkamerce.AlkamerceSession
-import com.codewithfk.alkamerce.model.UiProductModel
+import com.example.domain.model.request.AddCartRequestModel
+import com.example.domain.usecase.AddToCartUseCase
+import com.example.alkamerce.AlkamerceSession
+import com.example.alkamerce.model.UiProductModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -31,11 +31,11 @@ class ProductDetailsViewModel(val useCase: AddToCartUseCase,
                 userDomainModel.id!!.toLong()
             )
             when (result) {
-                is com.codewithfk.domain.network.ResultWrapper.Success -> {
+                is com.example.domain.network.ResultWrapper.Success -> {
                     _state.value = ProductDetailsEvent.Success("Product added to cart")
                 }
 
-                is com.codewithfk.domain.network.ResultWrapper.Failure -> {
+                is com.example.domain.network.ResultWrapper.Failure -> {
                     _state.value = ProductDetailsEvent.Error("Something went wrong!")
                 }
             }

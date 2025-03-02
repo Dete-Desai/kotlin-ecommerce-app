@@ -1,4 +1,4 @@
-package com.codewithfk.shopper
+package com.example.alkamerce
 
 import org.junit.Test
 

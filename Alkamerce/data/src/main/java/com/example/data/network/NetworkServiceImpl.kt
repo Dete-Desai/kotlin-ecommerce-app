@@ -1,31 +1,27 @@
-package com.codewithfk.data.network
+package com.example.data.network
 
-import com.codewithfk.data.model.CategoryDataModel
-import com.codewithfk.data.model.DataProductModel
-import com.codewithfk.data.model.request.AddToCartRequest
-import com.codewithfk.data.model.request.AddressDataModel
-import com.codewithfk.data.model.request.LoginRequest
-import com.codewithfk.data.model.request.RegisterRequest
-import com.codewithfk.data.model.response.CartResponse
-import com.codewithfk.data.model.response.CartSummaryResponse
-import com.codewithfk.data.model.response.CategoriesListResponse
-import com.codewithfk.data.model.response.OrdersListResponse
-import com.codewithfk.data.model.response.PlaceOrderResponse
-import com.codewithfk.data.model.response.ProductListResponse
-import com.codewithfk.data.model.response.UserAuthResponse
-import com.codewithfk.data.model.response.UserResponse
-import com.codewithfk.domain.model.AddressDomainModel
-import com.codewithfk.domain.model.CartItemModel
-import com.codewithfk.domain.model.CartModel
-import com.codewithfk.domain.model.CartSummary
-import com.codewithfk.domain.model.CategoriesListModel
-import com.codewithfk.domain.model.OrdersListModel
-import com.codewithfk.domain.model.Product
-import com.codewithfk.domain.model.ProductListModel
-import com.codewithfk.domain.model.UserDomainModel
-import com.codewithfk.domain.model.request.AddCartRequestModel
-import com.codewithfk.domain.network.NetworkService
-import com.codewithfk.domain.network.ResultWrapper
+import com.example.data.model.request.AddToCartRequest
+import com.example.data.model.request.AddressDataModel
+import com.example.data.model.request.LoginRequest
+import com.example.data.model.request.RegisterRequest
+import com.example.data.model.response.CartResponse
+import com.example.data.model.response.CartSummaryResponse
+import com.example.data.model.response.CategoriesListResponse
+import com.example.data.model.response.OrdersListResponse
+import com.example.data.model.response.PlaceOrderResponse
+import com.example.data.model.response.ProductListResponse
+import com.example.data.model.response.UserAuthResponse
+import com.example.domain.model.AddressDomainModel
+import com.example.domain.model.CartItemModel
+import com.example.domain.model.CartModel
+import com.example.domain.model.CartSummary
+import com.example.domain.model.CategoriesListModel
+import com.example.domain.model.OrdersListModel
+import com.example.domain.model.ProductListModel
+import com.example.domain.model.UserDomainModel
+import com.example.domain.model.request.AddCartRequestModel
+import com.example.domain.network.NetworkService
+import com.example.domain.network.ResultWrapper
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.ClientRequestException
@@ -37,11 +33,10 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpMethod
 import io.ktor.http.Parameters
 import io.ktor.http.contentType
-import io.ktor.util.InternalAPI
 import io.ktor.utils.io.errors.IOException
 
 class NetworkServiceImpl(val client: HttpClient) : NetworkService {
-    private val baseUrl = "https://ecommerce-ktor-4641e7ff1b63.herokuapp.com/v2"
+    private val baseUrl = "https://dummyjson.com"
     override suspend fun getProducts(category: Int?): ResultWrapper<ProductListModel> {
         val url =
             if (category != null) "$baseUrl/products/category/$category" else "$baseUrl/products"

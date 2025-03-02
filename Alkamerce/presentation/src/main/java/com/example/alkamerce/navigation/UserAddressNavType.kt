@@ -1,4 +1,4 @@
-package com.codewithfk.alkamerce.navigation
+package com.example.alkamerce.navigation
 
 import android.os.Build
 import android.os.Bundle

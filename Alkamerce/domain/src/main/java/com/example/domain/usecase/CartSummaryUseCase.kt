@@ -1,6 +1,6 @@
-package com.codewithfk.domain.usecase
+package com.example.domain.usecase
 
-import com.codewithfk.domain.repository.CartRepository
+import com.example.domain.repository.CartRepository
 
 class CartSummaryUseCase (private val repository: CartRepository) {
     suspend fun execute(userId: Long) = repository.getCartSummary(userId)

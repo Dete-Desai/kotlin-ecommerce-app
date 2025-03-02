@@ -1,4 +1,4 @@
-package com.codewithfk.alkamerce.ui.feature.summary
+package com.example.alkamerce.ui.feature.summary
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,15 +35,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.codewithfk.domain.model.CartItemModel
-import com.codewithfk.domain.model.CartSummary
-import com.codewithfk.alkamerce.R
-import com.codewithfk.alkamerce.model.UserAddress
-import com.codewithfk.alkamerce.navigation.HomeScreen
-import com.codewithfk.alkamerce.navigation.UserAddressRoute
-import com.codewithfk.alkamerce.navigation.UserAddressRouteWrapper
-import com.codewithfk.alkamerce.ui.feature.user_address.USER_ADDRESS_SCREEN
-import com.codewithfk.alkamerce.utils.CurrencyUtils
+import com.example.domain.model.CartItemModel
+import com.example.domain.model.CartSummary
+import com.example.alkamerce.R
+import com.example.alkamerce.model.UserAddress
+import com.example.alkamerce.navigation.HomeScreen
+import com.example.alkamerce.navigation.UserAddressRoute
+import com.example.alkamerce.navigation.UserAddressRouteWrapper
+import com.example.alkamerce.ui.feature.user_address.USER_ADDRESS_SCREEN
+import com.example.alkamerce.utils.CurrencyUtils
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

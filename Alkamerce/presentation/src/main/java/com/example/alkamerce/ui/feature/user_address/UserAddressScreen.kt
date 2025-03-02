@@ -1,4 +1,4 @@
-package com.codewithfk.alkamerce.ui.feature.user_address
+package com.example.alkamerce.ui.feature.user_address
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,7 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.codewithfk.alkamerce.model.UserAddress
+import com.example.alkamerce.model.UserAddress
 
 const val USER_ADDRESS_SCREEN = "user_address"
 

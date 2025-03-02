@@ -1,12 +1,12 @@
-package com.codewithfk.data.repository
+package com.example.data.repository
 
-import com.codewithfk.domain.model.CartItemModel
-import com.codewithfk.domain.model.CartModel
-import com.codewithfk.domain.model.CartSummary
-import com.codewithfk.domain.model.request.AddCartRequestModel
-import com.codewithfk.domain.network.NetworkService
-import com.codewithfk.domain.network.ResultWrapper
-import com.codewithfk.domain.repository.CartRepository
+import com.example.domain.model.CartItemModel
+import com.example.domain.model.CartModel
+import com.example.domain.model.CartSummary
+import com.example.domain.model.request.AddCartRequestModel
+import com.example.domain.network.NetworkService
+import com.example.domain.network.ResultWrapper
+import com.example.domain.repository.CartRepository
 
 class CartRepositoryImpl(val networkService: NetworkService) : CartRepository {
     override suspend fun addProductToCart(

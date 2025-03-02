@@ -1,8 +1,9 @@
-package com.codewithfk.alkamerce.navigation
+package com.example.alkamerce.navigation
 
 import android.os.Parcelable
-import com.codewithfk.alkamerce.model.UserAddress
+import com.example.alkamerce.model.UserAddress
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 @Serializable
 @Parcelize

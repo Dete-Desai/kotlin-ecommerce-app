@@ -1,18 +1,18 @@
-package com.codewithfk.data.di
+package com.example.data.di
 
-import com.codewithfk.data.repository.CategoryRepositoryImpl
-import com.codewithfk.data.repository.ProductRepositoryImpl
-import com.codewithfk.domain.repository.CartRepository
-import com.codewithfk.domain.repository.CategoryRepository
-import com.codewithfk.domain.repository.OrderRepository
-import com.codewithfk.domain.repository.ProductRepository
-import com.codewithfk.domain.repository.UserRepository
+import com.example.data.repository.CategoryRepositoryImpl
+import com.example.data.repository.ProductRepositoryImpl
+import com.example.domain.repository.CartRepository
+import com.example.domain.repository.CategoryRepository
+import com.example.domain.repository.OrderRepository
+import com.example.domain.repository.ProductRepository
+import com.example.domain.repository.UserRepository
 import org.koin.dsl.module
 
 val repositoryModule = module {
     single<ProductRepository> { ProductRepositoryImpl(get()) }
     single<CategoryRepository> { CategoryRepositoryImpl(get()) }
-    single<CartRepository> { com.codewithfk.data.repository.CartRepositoryImpl(get()) }
-    single<OrderRepository> { com.codewithfk.data.repository.OrderRepositoryImpl(get()) }
-    single<UserRepository> { com.codewithfk.data.repository.UserRepositoryImpl(get()) }
+    single<CartRepository> { com.example.data.repository.CartRepositoryImpl(get()) }
+    single<OrderRepository> { com.example.data.repository.OrderRepositoryImpl(get()) }
+    single<UserRepository> { com.example.data.repository.UserRepositoryImpl(get()) }
 }

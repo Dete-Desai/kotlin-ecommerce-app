@@ -1,4 +1,4 @@
-package com.codewithfk.alkamerce.utils
+package com.example.alkamerce.utils
 
 import java.text.NumberFormat
 import java.util.Currency

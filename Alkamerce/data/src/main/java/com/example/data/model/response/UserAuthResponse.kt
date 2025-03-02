@@ -1,4 +1,4 @@
-package com.codewithfk.data.model.response
+package com.example.data.model.response
 
 import kotlinx.serialization.Serializable
 

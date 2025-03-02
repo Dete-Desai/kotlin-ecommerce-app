@@ -1,4 +1,4 @@
-package com.codewithfk.data.model
+package com.example.data.model
 
 import kotlinx.serialization.Serializable
 
@@ -8,7 +8,7 @@ data class CategoryDataModel(
     val image: String,
     val title: String
 ) {
-    fun toCategory() = com.codewithfk.domain.model.Category(
+    fun toCategory() = com.example.domain.model.Category(
         id = id,
         image = image,
         title = title

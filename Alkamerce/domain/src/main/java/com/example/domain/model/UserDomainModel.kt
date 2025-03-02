@@ -1,4 +1,4 @@
-package com.codewithfk.domain.model
+package com.example.domain.model
 
 data class UserDomainModel(
     val id: Int?,

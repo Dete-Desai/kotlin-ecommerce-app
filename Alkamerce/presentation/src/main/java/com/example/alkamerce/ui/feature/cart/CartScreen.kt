@@ -1,4 +1,4 @@
-package com.codewithfk.alkamerce.ui.feature.cart
+package com.example.alkamerce.ui.feature.cart
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -41,9 +41,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.codewithfk.domain.model.CartItemModel
-import com.codewithfk.alkamerce.R
-import com.codewithfk.alkamerce.navigation.CartSummaryScreen
+import com.example.domain.model.CartItemModel
+import com.example.alkamerce.R
+import com.example.alkamerce.navigation.CartSummaryScreen
 import kotlinx.coroutines.delay
 import org.koin.androidx.compose.koinViewModel
 

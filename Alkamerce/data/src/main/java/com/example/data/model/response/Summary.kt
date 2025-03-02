@@ -1,4 +1,4 @@
-package com.codewithfk.data.model.response
+package com.example.data.model.response
 
 import kotlinx.serialization.Serializable
 
@@ -11,7 +11,7 @@ data class Summary(
     val tax: Double,
     val total: Double
 ) {
-    fun toSummaryData() = com.codewithfk.domain.model.SummaryData(
+    fun toSummaryData() = com.example.domain.model.SummaryData(
         discount = discount,
         items = items.map { it.toCartItemModel() },
         shipping = shipping,

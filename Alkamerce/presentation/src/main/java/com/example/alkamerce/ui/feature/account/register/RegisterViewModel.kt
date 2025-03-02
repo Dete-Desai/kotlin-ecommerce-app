@@ -1,10 +1,10 @@
-package com.codewithfk.alkamerce.ui.feature.account.register
+package com.example.alkamerce.ui.feature.account.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.codewithfk.domain.network.ResultWrapper
-import com.codewithfk.domain.usecase.RegisterUseCase
-import com.codewithfk.alkamerce.AlkamerceSession
+import com.example.domain.network.ResultWrapper
+import com.example.domain.usecase.RegisterUseCase
+import com.example.alkamerce.AlkamerceSession
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,4 @@
-package com.codewithfk.domain
+package com.example.domain
 
 import org.junit.Test
 

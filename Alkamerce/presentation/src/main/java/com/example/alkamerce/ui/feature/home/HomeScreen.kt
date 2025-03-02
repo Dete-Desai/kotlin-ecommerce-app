@@ -1,4 +1,4 @@
-package com.codewithfk.alkamerce.ui.feature.home
+package com.example.alkamerce.ui.feature.home
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
@@ -48,11 +48,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.codewithfk.domain.model.Product
-import com.codewithfk.alkamerce.R
-import com.codewithfk.alkamerce.model.UiProductModel
-import com.codewithfk.alkamerce.navigation.CartScreen
-import com.codewithfk.alkamerce.navigation.ProductDetails
+import com.example.domain.model.Product
+import com.example.alkamerce.R
+import com.example.alkamerce.model.UiProductModel
+import com.example.alkamerce.navigation.CartScreen
+import com.example.alkamerce.navigation.ProductDetails
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

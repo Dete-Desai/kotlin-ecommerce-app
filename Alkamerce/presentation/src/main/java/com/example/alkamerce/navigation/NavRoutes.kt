@@ -1,30 +1,31 @@
-package com.codewithfk.alkamerce.navigation
+package com.example.alkamerce.navigation
 
-import com.codewithfk.alkamerce.model.UiProductModel
+import com.example.alkamerce.model.UiProductModel
+import kotlinx.serialization.Serializable
 
-@Serializable
+@kotlinx.serialization.Serializable
 object HomeScreen
 
-@Serializable
+@kotlinx.serialization.Serializable
 object LoginScreen
 
-@Serializable
+@kotlinx.serialization.Serializable
 object RegisterScreen
 
-@Serializable
+@kotlinx.serialization.Serializable
 object CartScreen
 
-@Serializable
+@kotlinx.serialization.Serializable
 object OrdersScreen
 
-@Serializable
+@kotlinx.serialization.Serializable
 object ProfileScreen
 
-@Serializable
+@kotlinx.serialization.Serializable
 object CartSummaryScreen
 
-@Serializable
+@kotlinx.serialization.Serializable
 data class ProductDetails(val product: UiProductModel)
 
-@Serializable
+
 data class UserAddressRoute(val userAddressWrapper: UserAddressRouteWrapper)

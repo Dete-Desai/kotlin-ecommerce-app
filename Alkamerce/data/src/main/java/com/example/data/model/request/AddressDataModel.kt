@@ -1,6 +1,6 @@
-package com.codewithfk.data.model.request
+package com.example.data.model.request
 
-import com.codewithfk.domain.model.AddressDomainModel
+import com.example.domain.model.AddressDomainModel
 import kotlinx.serialization.Serializable
 
 @Serializable

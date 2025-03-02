@@ -1,4 +1,4 @@
-package com.codewithfk.data.model.response
+package com.example.data.model.response
 
 import kotlinx.serialization.Serializable
 
@@ -12,8 +12,8 @@ data class OrderItem(
     val quantity: Int,
     val userId: Int
 ) {
-    fun toDomainResponse(): com.codewithfk.domain.model.OrderProductItem {
-        return com.codewithfk.domain.model.OrderProductItem(
+    fun toDomainResponse(): com.example.domain.model.OrderProductItem {
+        return com.example.domain.model.OrderProductItem(
             id = id,
             orderId = orderId,
             price = price,

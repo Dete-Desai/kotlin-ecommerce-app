@@ -1,10 +1,10 @@
-package com.codewithfk.domain.repository
+package com.example.domain.repository
 
-import com.codewithfk.domain.model.CartItemModel
-import com.codewithfk.domain.model.CartModel
-import com.codewithfk.domain.model.CartSummary
-import com.codewithfk.domain.model.request.AddCartRequestModel
-import com.codewithfk.domain.network.ResultWrapper
+import com.example.domain.model.CartItemModel
+import com.example.domain.model.CartModel
+import com.example.domain.model.CartSummary
+import com.example.domain.model.request.AddCartRequestModel
+import com.example.domain.network.ResultWrapper
 
 interface CartRepository {
     suspend fun addProductToCart(

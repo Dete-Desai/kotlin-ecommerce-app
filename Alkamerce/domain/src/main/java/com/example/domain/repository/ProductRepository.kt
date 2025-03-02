@@ -1,7 +1,7 @@
-package com.codewithfk.domain.repository
+package com.example.domain.repository
 
-import com.codewithfk.domain.model.ProductListModel
-import com.codewithfk.domain.network.ResultWrapper
+import com.example.domain.model.ProductListModel
+import com.example.domain.network.ResultWrapper
 
 interface ProductRepository {
     suspend fun getProducts(category:Int?): ResultWrapper<ProductListModel>

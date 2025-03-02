@@ -1,4 +1,4 @@
-package com.codewithfk.alkamerce.ui.feature.product_details
+package com.example.alkamerce.ui.feature.product_details
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -39,8 +39,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.codewithfk.alkamerce.R
-import com.codewithfk.alkamerce.model.UiProductModel
+import com.example.alkamerce.R
+import com.example.alkamerce.model.UiProductModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

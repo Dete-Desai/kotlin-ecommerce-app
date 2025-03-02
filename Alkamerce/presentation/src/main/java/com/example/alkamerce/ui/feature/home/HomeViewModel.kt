@@ -1,11 +1,11 @@
-package com.codewithfk.alkamerce.ui.feature.home
+package com.example.alkamerce.ui.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.codewithfk.domain.model.Product
-import com.codewithfk.domain.network.ResultWrapper
-import com.codewithfk.domain.usecase.GetCategoriesUseCase
-import com.codewithfk.domain.usecase.GetProductUseCase
+import com.example.domain.model.Product
+import com.example.domain.network.ResultWrapper
+import com.example.domain.usecase.GetCategoriesUseCase
+import com.example.domain.usecase.GetProductUseCase
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

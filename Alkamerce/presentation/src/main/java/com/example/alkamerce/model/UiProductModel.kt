@@ -1,8 +1,9 @@
-package com.codewithfk.alkamerce.model
+package com.example.alkamerce.model
 
 import android.os.Parcelable
-import com.codewithfk.domain.model.Product
+import com.example.domain.model.Product
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 @Serializable
 @Parcelize

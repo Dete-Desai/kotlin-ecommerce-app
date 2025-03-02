@@ -1,13 +1,13 @@
-package com.codewithfk.shopper.ui.feature.cart
+package com.example.alkamerce.ui.feature.cart
 
-import com.codewithfk.domain.model.CartItemModel
-import com.codewithfk.domain.model.CartModel
-import com.codewithfk.domain.model.UserDomainModel
-import com.codewithfk.domain.network.ResultWrapper
-import com.codewithfk.domain.usecase.DeleteProductUseCase
-import com.codewithfk.domain.usecase.GetCartUseCase
-import com.codewithfk.domain.usecase.UpdateQuantityUseCase
-import com.codewithfk.shopper.ShopperSession
+import com.example.domain.model.CartItemModel
+import com.example.domain.model.CartModel
+import com.example.domain.model.UserDomainModel
+import com.example.domain.network.ResultWrapper
+import com.example.domain.usecase.DeleteProductUseCase
+import com.example.domain.usecase.GetCartUseCase
+import com.example.domain.usecase.UpdateQuantityUseCase
+import com.example.alkamerce.AlkamerceSession
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -35,7 +35,7 @@ class CartViewModelTest : KoinTest {
     val cartUserCase: GetCartUseCase = mock()
     val updateQuantityUseCase: UpdateQuantityUseCase = mock()
     val deleteProductUseCase: DeleteProductUseCase = mock()
-    val shopperSession: ShopperSession = mock()
+    val alkamerceSession: AlkamerceSession = mock()
 
     val classToTest: CartViewModel by inject()
 
@@ -46,7 +46,7 @@ class CartViewModelTest : KoinTest {
                 single { cartUserCase }
                 single { updateQuantityUseCase }
                 single { deleteProductUseCase }
-                single { shopperSession }
+                single { alkamerceSession }
                 single { CartViewModel(get(), get(), get(), get()) }
             }
         )
@@ -57,7 +57,7 @@ class CartViewModelTest : KoinTest {
     @Before
     fun setUp() {
         Dispatchers.setMain(testDispatcher)
-        whenever(shopperSession.getUser()).thenReturn(
+        whenever(alkamerceSession.getUser()).thenReturn(
             UserDomainModel(
                 1,
                 "test@test.com",

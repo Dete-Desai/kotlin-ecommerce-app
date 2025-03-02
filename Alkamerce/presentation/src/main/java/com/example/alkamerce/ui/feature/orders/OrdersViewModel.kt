@@ -1,10 +1,10 @@
-package com.codewithfk.alkamerce.ui.feature.orders
+package com.example.alkamerce.ui.feature.orders
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.codewithfk.domain.model.OrdersData
-import com.codewithfk.domain.usecase.OrderListUseCase
-import com.codewithfk.alkamerce.AlkamerceSession
+import com.example.domain.model.OrdersData
+import com.example.domain.usecase.OrderListUseCase
+import com.example.alkamerce.AlkamerceSession
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -32,12 +32,12 @@ class OrdersViewModel(
             val result = orderListUseCase.execute(userDomainModel!!.id!!.toLong())
 
             when (result) {
-                is com.codewithfk.domain.network.ResultWrapper.Success -> {
+                is com.example.domain.network.ResultWrapper.Success -> {
                     val data = result.value
                     _ordersEvent.value = OrdersEvent.Success(data.`data`)
                 }
 
-                is com.codewithfk.domain.network.ResultWrapper.Failure -> {
+                is com.example.domain.network.ResultWrapper.Failure -> {
                     _ordersEvent.value = OrdersEvent.Error("Something went wrong")
                 }
             }

@@ -1,4 +1,4 @@
-package com.codewithfk.alkamerce.ui.theme
+package com.example.alkamerce.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

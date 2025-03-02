@@ -1,4 +1,4 @@
-package com.codewithfk.shopper.feature
+package com.example.alkamerce.feature
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -6,7 +6,7 @@ import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
-import com.codewithfk.shopper.MainActivity
+import com.example.alkamerce.MainActivity
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
@@ -24,7 +24,7 @@ class LoginFlowTest : KoinTest {
     @Test
     fun loginWithCorrectCredentials() {
         waitForLoginScreen()
-        composeTestRule.onNodeWithTag("emailField").performTextInput("codewithfk@gmail.com")
+        composeTestRule.onNodeWithTag("emailField").performTextInput("example@gmail.com")
         composeTestRule.onNodeWithTag("passwordField").performTextInput("123456")
         composeTestRule.onNodeWithTag("loginButton").performClick()
         waitForHomeScreen()

@@ -1,4 +1,4 @@
-package com.codewithfk.alkamerce.ui.feature.account.login
+package com.example.alkamerce.ui.feature.account.login
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -24,9 +24,9 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.codewithfk.alkamerce.R
-import com.codewithfk.alkamerce.navigation.HomeScreen
-import com.codewithfk.alkamerce.navigation.RegisterScreen
+import com.example.alkamerce.R
+import com.example.alkamerce.navigation.HomeScreen
+import com.example.alkamerce.navigation.RegisterScreen
 import org.koin.androidx.compose.koinViewModel
 
 

@@ -1,7 +1,7 @@
-package com.codewithfk.domain.usecase
+package com.example.domain.usecase
 
-import com.codewithfk.domain.model.AddressDomainModel
-import com.codewithfk.domain.repository.OrderRepository
+import com.example.domain.model.AddressDomainModel
+import com.example.domain.repository.OrderRepository
 
 class PlaceOrderUseCase(val orderRepository: OrderRepository) {
     suspend fun execute(addressDomainModel: AddressDomainModel, userId: Long) =

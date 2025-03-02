@@ -1,9 +1,9 @@
-package com.codewithfk.alkamerce.navigation
+package com.example.alkamerce.navigation
 
 import android.os.Build
 import android.os.Bundle
 import androidx.navigation.NavType
-import com.codewithfk.alkamerce.model.UiProductModel
+import com.example.alkamerce.model.UiProductModel
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.net.URLDecoder

@@ -1,4 +1,4 @@
-package com.codewithfk.data.model.response
+package com.example.data.model.response
 
 import kotlinx.serialization.Serializable
 
@@ -9,7 +9,7 @@ data class UserResponse(
     val email: String,
     val name: String
 ) {
-    fun toDomainModel() = com.codewithfk.domain.model.UserDomainModel(
+    fun toDomainModel() = com.example.domain.model.UserDomainModel(
         id = id,
         username = username,
         email = email,
