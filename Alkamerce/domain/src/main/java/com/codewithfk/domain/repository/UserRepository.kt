@@ -1,7 +1,7 @@
-package com.example.domain.repository
+package com.codewithfk.domain.repository
 
-import com.example.domain.model.UserDomainModel
-import com.example.domain.network.ResultWrapper
+import com.codewithfk.domain.model.UserDomainModel
+import com.codewithfk.domain.network.ResultWrapper
 
 interface UserRepository {
     suspend fun login(email: String, password: String): ResultWrapper<UserDomainModel>

@@ -1,6 +1,8 @@
-package com.example.domain.model
+package com.codewithfk.domain.model
 
 data class ProductListModel(
     val products: List<Product>,
-    val msg: String
+    val total: Int,
+    val skip: Int,
+    val limit: Int
 )

@@ -1,4 +1,4 @@
-package com.example.domain.model.request
+package com.codewithfk.domain.model.request
 
 data class AddCartRequestModel(
     val productId: Int,

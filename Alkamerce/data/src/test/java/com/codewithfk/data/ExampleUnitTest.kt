@@ -1,4 +1,4 @@
-package com.example.data
+package com.codewithfk.data
 
 import org.junit.Test
 

@@ -5,11 +5,15 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ProductListResponse(
-    val `data`: List<DataProductModel>,
-    val msg: String
+    val products: List<DataProductModel>,
+    val total: Int,
+    val skip: Int,
+    val limit: Int
 ) {
     fun toProductList() = com.codewithfk.domain.model.ProductListModel(
-        products = `data`.map { it.toProduct() },
-        msg = msg
+        products = products.map { it.toProduct() },
+        total = total,
+        skip = skip,
+        limit = limit
     )
 }

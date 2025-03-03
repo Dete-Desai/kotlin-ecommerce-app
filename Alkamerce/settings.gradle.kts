@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Alkamerce"
+rootProject.name = "Shopper"
 include(":presentation")
 include(":data")
 include(":domain")

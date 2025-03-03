@@ -1,4 +1,4 @@
-package com.example.domain.model
+package com.codewithfk.domain.model
 
 data class OrdersData(
     val id: Int,

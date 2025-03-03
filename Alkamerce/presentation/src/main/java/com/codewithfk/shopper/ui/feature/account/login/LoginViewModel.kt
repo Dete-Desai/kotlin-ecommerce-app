@@ -15,10 +15,10 @@ class LoginViewModel(
     private val _loginState = MutableStateFlow<LoginState>(LoginState.Idle)
     val loginState = _loginState
 
-    fun login(email: String, password: String) {
+    fun login(username: String, password: String) {
         _loginState.value = LoginState.Loading
         viewModelScope.launch {
-            val response = loginUseCase.execute(email, password)
+            val response = loginUseCase.execute(username, password)
             when (response) {
                 is ResultWrapper.Success -> {
                     shopperSession.storeUser(response.value)

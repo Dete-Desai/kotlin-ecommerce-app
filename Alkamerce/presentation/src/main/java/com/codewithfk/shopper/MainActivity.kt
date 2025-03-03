@@ -5,11 +5,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.EaseInOut
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -18,12 +23,18 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -49,9 +60,11 @@ import com.codewithfk.shopper.ui.feature.cart.CartScreen
 import com.codewithfk.shopper.ui.feature.home.HomeScreen
 import com.codewithfk.shopper.ui.feature.orders.OrdersScreen
 import com.codewithfk.shopper.ui.feature.product_details.ProductDetailsScreen
+import com.codewithfk.shopper.ui.feature.splash.SplashScreen
 import com.codewithfk.shopper.ui.feature.summary.CartSummaryScreen
 import com.codewithfk.shopper.ui.feature.user_address.UserAddressScreen
 import com.codewithfk.shopper.ui.theme.ShopperTheme
+import kotlinx.coroutines.delay
 import org.koin.android.ext.android.inject
 import kotlin.reflect.typeOf
 
@@ -60,82 +73,88 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val shopperSession : ShopperSession by inject()
+            val shopperSession: ShopperSession by inject()
             ShopperTheme {
+                var showSplash by remember { mutableStateOf(true) }
                 val shouldShowBottomNav = remember {
-                    mutableStateOf(true)
+                    mutableStateOf(false) // Initially hidden during splash
                 }
                 val navController = rememberNavController()
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    bottomBar = {
-                        AnimatedVisibility(visible = shouldShowBottomNav.value, enter = fadeIn()) {
-                            BottomNavigationBar(navController)
-                        }
 
+                if (showSplash) {
+                    SplashScreen {
+                        // When splash animation completes
+                        showSplash = false
                     }
-                ) {
-                    Surface(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(it)
+                } else {
+                    Scaffold(
+                        modifier = Modifier.fillMaxSize(),
+                        bottomBar = {
+                            AnimatedVisibility(visible = shouldShowBottomNav.value, enter = fadeIn()) {
+                                BottomNavigationBar(navController)
+                            }
+                        }
                     ) {
-
-                        NavHost(
-                            navController = navController,
-                            startDestination = if (shopperSession.getUser() != null) {
-                                HomeScreen
-                            } else {
-                                LoginScreen
-                            }
+                        Surface(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(it)
                         ) {
-
-                            composable<LoginScreen> {
-                                shouldShowBottomNav.value = false
-                                LoginScreen(navController)
-                            }
-                            composable<RegisterScreen> {
-                                shouldShowBottomNav.value = false
-                                RegisterScreen(navController)
-                            }
-                            composable<HomeScreen> {
-                                HomeScreen(navController)
-                                shouldShowBottomNav.value = true
-                            }
-                            composable<CartScreen> {
-                                shouldShowBottomNav.value = true
-                                CartScreen(navController)
-                            }
-                            composable<OrdersScreen> {
-                                shouldShowBottomNav.value = true
-                                OrdersScreen()
-                            }
-                            composable<ProfileScreen> {
-                                shouldShowBottomNav.value = true
-                                Box(modifier = Modifier.fillMaxSize()) {
-                                    Text(text = "Profile")
+                            NavHost(
+                                navController = navController,
+                                startDestination = if (shopperSession.getUser() != null) {
+                                    HomeScreen
+                                } else {
+                                    LoginScreen
                                 }
-                            }
-                            composable<CartSummaryScreen> {
-                                shouldShowBottomNav.value = false
-                                CartSummaryScreen(navController = navController)
-                            }
-                            composable<ProductDetails>(
-                                typeMap = mapOf(typeOf<UiProductModel>() to productNavType)
                             ) {
-                                shouldShowBottomNav.value = false
-                                val productRoute = it.toRoute<ProductDetails>()
-                                ProductDetailsScreen(navController, productRoute.product)
-                            }
-                            composable<UserAddressRoute>(
-                                typeMap = mapOf(typeOf<UserAddressRouteWrapper>() to userAddressNavType)
-                            ) {
-                                shouldShowBottomNav.value = false
-                                val userAddressRoute = it.toRoute<UserAddressRoute>()
-                                UserAddressScreen(
-                                    navController = navController,
-                                    userAddress = userAddressRoute.userAddressWrapper.userAddress
-                                )
+                                composable<LoginScreen> {
+                                    shouldShowBottomNav.value = false
+                                    LoginScreen(navController)
+                                }
+                                composable<RegisterScreen> {
+                                    shouldShowBottomNav.value = false
+                                    RegisterScreen(navController)
+                                }
+                                composable<HomeScreen> {
+                                    HomeScreen(navController)
+                                    shouldShowBottomNav.value = true
+                                }
+                                composable<CartScreen> {
+                                    shouldShowBottomNav.value = true
+                                    CartScreen(navController)
+                                }
+                                composable<OrdersScreen> {
+                                    shouldShowBottomNav.value = true
+                                    OrdersScreen()
+                                }
+                                composable<ProfileScreen> {
+                                    shouldShowBottomNav.value = true
+                                    Box(modifier = Modifier.fillMaxSize()) {
+                                        Text(text = "Profile")
+                                    }
+                                }
+                                composable<CartSummaryScreen> {
+                                    shouldShowBottomNav.value = false
+                                    CartSummaryScreen(navController = navController)
+                                }
+                                composable<ProductDetails>(
+                                    typeMap = mapOf(typeOf<UiProductModel>() to productNavType)
+                                ) {
+                                    shouldShowBottomNav.value = false
+                                    val productRoute = it.toRoute<ProductDetails>()
+                                    ProductDetailsScreen(navController, productRoute.product)
+                                }
+                                composable<UserAddressRoute>(
+                                    typeMap = mapOf(typeOf<UserAddressRouteWrapper>() to userAddressNavType)
+                                ) {
+                                    shouldShowBottomNav.value = false
+                                    val userAddressRoute = it.toRoute<UserAddressRoute>()
+                                    UserAddressScreen(
+                                        navController = navController,
+                                        userAddress = userAddressRoute.userAddressWrapper.userAddress
+                                    )
+                                }
                             }
                         }
                     }

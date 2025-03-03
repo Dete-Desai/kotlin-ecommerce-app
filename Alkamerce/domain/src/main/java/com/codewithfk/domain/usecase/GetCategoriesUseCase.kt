@@ -1,6 +1,6 @@
-package com.example.domain.usecase
+package com.codewithfk.domain.usecase
 
-import com.example.domain.repository.CategoryRepository
+import com.codewithfk.domain.repository.CategoryRepository
 
 class GetCategoriesUseCase (private val repository: CategoryRepository) {
     suspend fun execute() = repository.getCategories()

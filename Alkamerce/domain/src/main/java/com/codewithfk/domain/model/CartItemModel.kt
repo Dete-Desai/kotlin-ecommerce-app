@@ -1,4 +1,4 @@
-package com.example.domain.model
+package com.codewithfk.domain.model
 
 data class CartItemModel(
     val id: Int,

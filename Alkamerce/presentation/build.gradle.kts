@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.alkamerce"
+    namespace = "com.codewithfk.shopper"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.alkamerce"
+        applicationId = "com.codewithfk.shopper"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -62,7 +62,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.navigation.runtime)
+    implementation(libs.androidx.material.icons.extended)
     testImplementation(libs.junit)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
@@ -71,6 +71,9 @@ dependencies {
     implementation(libs.compose.navigation)
     implementation(libs.coil.compose)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx) // For ViewModel and viewModelScope
+    implementation(libs.kotlinx.coroutines.core) // For coroutines
+    implementation(libs.kotlinx.coroutines.android)
 
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.mockito.core)

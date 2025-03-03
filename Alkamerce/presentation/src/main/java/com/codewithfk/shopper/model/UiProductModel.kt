@@ -11,19 +11,24 @@ data class UiProductModel(
     val id: Int,
     val title: String,
     val price: Double,
-    val categoryId: Int,
     val description: String,
-    val image: String
+    val image: String, // Use the first image from the `images` list
+    val category: String,
+    val rating: Double,
+    val stock: Int,
+    val brand: String
 ) : Parcelable {
     companion object {
         fun fromProduct(product: Product) = UiProductModel(
             id = product.id,
             title = product.title,
             price = product.price,
-            categoryId = product.categoryId,
             description = product.description,
-            image = product.image
+            image = product.images.firstOrNull() ?: "", // Use the first image or an empty string
+            category = product.category,
+            rating = product.rating,
+            stock = product.stock,
+            brand = product.brand
         )
     }
-
 }

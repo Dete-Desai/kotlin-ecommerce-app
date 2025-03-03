@@ -1,6 +1,7 @@
-package com.example.domain.usecase
+package com.codewithfk.domain.usecase
 
-import com.example.domain.repository.OrderRepository
+import com.codewithfk.domain.model.OrdersListModel
+import com.codewithfk.domain.repository.OrderRepository
 
 class OrderListUseCase(
     private val repository: OrderRepository

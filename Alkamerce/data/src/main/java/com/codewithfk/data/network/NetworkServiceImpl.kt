@@ -41,10 +41,9 @@ import io.ktor.util.InternalAPI
 import io.ktor.utils.io.errors.IOException
 
 class NetworkServiceImpl(val client: HttpClient) : NetworkService {
-    private val baseUrl = "https://ecommerce-ktor-4641e7ff1b63.herokuapp.com/v2"
-    override suspend fun getProducts(category: Int?): ResultWrapper<ProductListModel> {
-        val url =
-            if (category != null) "$baseUrl/products/category/$category" else "$baseUrl/products"
+    private val baseUrl = "https://dummyjson.com"
+    override suspend fun getProducts(): ResultWrapper<ProductListModel> {
+        val url = "$baseUrl/products"
         return makeWebRequest(url = url,
             method = HttpMethod.Get,
             mapper = { dataModels: ProductListResponse ->
@@ -53,7 +52,7 @@ class NetworkServiceImpl(val client: HttpClient) : NetworkService {
     }
 
     override suspend fun getCategories(): ResultWrapper<CategoriesListModel> {
-        val url = "$baseUrl/categories"
+        val url = "$baseUrl/products/categories"
         return makeWebRequest(url = url,
             method = HttpMethod.Get,
             mapper = { categories: CategoriesListResponse ->
@@ -140,13 +139,13 @@ class NetworkServiceImpl(val client: HttpClient) : NetworkService {
             })
     }
 
-    override suspend fun login(email: String, password: String): ResultWrapper<UserDomainModel> {
-        val url = "$baseUrl/login"
+    override suspend fun login(username: String, password: String): ResultWrapper<UserDomainModel> {
+        val url = "$baseUrl/auth/login"
         return makeWebRequest(url = url,
             method = HttpMethod.Post,
-            body = LoginRequest(email, password),
+            body = LoginRequest(username, password),
             mapper = { user: UserAuthResponse ->
-                user.data.toDomainModel()
+                user.toDomainModel()
             })
     }
 
@@ -160,7 +159,7 @@ class NetworkServiceImpl(val client: HttpClient) : NetworkService {
             method = HttpMethod.Post,
             body = RegisterRequest(email, password, name),
             mapper = { user: UserAuthResponse ->
-                user.data.toDomainModel()
+                user.toDomainModel()
             })
     }
 

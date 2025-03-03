@@ -1,6 +1,6 @@
-package com.example.domain.usecase
+package com.codewithfk.domain.usecase
 
-import com.example.domain.repository.UserRepository
+import com.codewithfk.domain.repository.UserRepository
 
 class RegisterUseCase(private val userRepository: UserRepository) {
     suspend fun execute(username: String, password: String, name: String) =

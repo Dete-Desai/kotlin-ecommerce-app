@@ -1,7 +1,7 @@
-package com.example.domain.usecase
+package com.codewithfk.domain.usecase
 
-import com.example.domain.repository.ProductRepository
+import com.codewithfk.domain.repository.ProductRepository
 
 class GetProductUseCase(private val repository: ProductRepository) {
-    suspend fun execute(category:Int?) = repository.getProducts(category)
+    suspend fun execute() = repository.getProducts()
 }

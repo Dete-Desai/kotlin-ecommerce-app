@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.data"
+    namespace = "com.codewithfk.data"
     compileSdk = 34
 
     defaultConfig {

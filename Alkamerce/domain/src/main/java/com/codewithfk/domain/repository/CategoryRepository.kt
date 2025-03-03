@@ -1,7 +1,7 @@
-package com.example.domain.repository
+package com.codewithfk.domain.repository
 
-import com.example.domain.model.CategoriesListModel
-import com.example.domain.network.ResultWrapper
+import com.codewithfk.domain.model.CategoriesListModel
+import com.codewithfk.domain.network.ResultWrapper
 
 interface CategoryRepository {
     suspend fun getCategories(): ResultWrapper<CategoriesListModel>

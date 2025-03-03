@@ -1,4 +1,4 @@
-package com.example.domain.di
+package com.codewithfk.domain.di
 
 import org.koin.dsl.module
 
