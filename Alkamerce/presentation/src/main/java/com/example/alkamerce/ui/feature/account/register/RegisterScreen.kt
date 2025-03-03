@@ -1,8 +1,10 @@
 package com.example.alkamerce.ui.feature.account.register
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -25,6 +27,19 @@ import androidx.navigation.NavController
 import com.example.alkamerce.R
 import com.example.alkamerce.navigation.HomeScreen
 import org.koin.androidx.compose.koinViewModel
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.*
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 
 @Composable
 fun RegisterScreen(navController: NavController, viewModel: RegisterViewModel = koinViewModel()) {
@@ -84,24 +99,70 @@ fun RegisterContent(
     val name = remember {
         mutableStateOf("")
     }
+
+    val tealColor = Color(0xFF03DAC5)
+    val focusManager = LocalFocusManager.current
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.height(48.dp))
 
-        Text(text = stringResource(id = R.string.register), style = MaterialTheme.typography.titleLarge)
+        // Add logo at the top
+        Image(
+            painter = painterResource(id = R.drawable.light_logo),
+            contentDescription = null,
+            modifier = Modifier
+                .size(150.dp)
+                .padding(horizontal = 5.dp)
+        )
+
+        Text(
+            text = "Alkamerce",
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(bottom = 24.dp)
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Text(
+            text = stringResource(id = R.string.register),
+            style = MaterialTheme.typography.titleLarge,
+            modifier = Modifier.padding(bottom = 16.dp)
+        )
+
+        val nameFocusRequester = remember { FocusRequester() }
+        val emailFocusRequester = remember { FocusRequester() }
+        val passwordFocusRequester = remember { FocusRequester() }
+
         OutlinedTextField(
             value = name.value,
             onValueChange = {
                 name.value = it
             },
             modifier = Modifier
-                .padding(vertical = 4.dp)
-                .fillMaxWidth(),
-            label = { Text(text = stringResource(id = R.string.name)) }
+                .padding(vertical = 8.dp)
+                .fillMaxWidth()
+                .focusRequester(nameFocusRequester),
+            label = { Text(text = stringResource(id = R.string.name)) },
+            shape = RoundedCornerShape(20.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = tealColor,
+                unfocusedBorderColor = Color.Gray,
+                focusedLabelColor = tealColor
+            ),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Text,
+                imeAction = ImeAction.Next
+            ),
+            keyboardActions = KeyboardActions(
+                onNext = { emailFocusRequester.requestFocus() }
+            )
         )
 
         OutlinedTextField(
@@ -110,10 +171,25 @@ fun RegisterContent(
                 email.value = it
             },
             modifier = Modifier
-                .padding(vertical = 4.dp)
-                .fillMaxWidth(),
-            label = { Text(text = stringResource(id = R.string.email)) }
+                .padding(vertical = 8.dp)
+                .fillMaxWidth()
+                .focusRequester(emailFocusRequester),
+            label = { Text(text = stringResource(id = R.string.email)) },
+            shape = RoundedCornerShape(20.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = tealColor,
+                unfocusedBorderColor = Color.Gray,
+                focusedLabelColor = tealColor
+            ),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Email,
+                imeAction = ImeAction.Next
+            ),
+            keyboardActions = KeyboardActions(
+                onNext = { passwordFocusRequester.requestFocus() }
+            )
         )
+
         OutlinedTextField(
             value = password.value,
             onValueChange = {
@@ -121,22 +197,64 @@ fun RegisterContent(
             },
             modifier = Modifier
                 .padding(vertical = 8.dp)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .focusRequester(passwordFocusRequester),
             label = { Text(text = stringResource(id = R.string.password)) },
-            visualTransformation = PasswordVisualTransformation()
+            visualTransformation = PasswordVisualTransformation(),
+            shape = RoundedCornerShape(20.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedBorderColor = tealColor,
+                unfocusedBorderColor = Color.Gray,
+                focusedLabelColor = tealColor
+            ),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Password,
+                imeAction = ImeAction.Done
+            ),
+            keyboardActions = KeyboardActions(
+                onDone = {
+                    focusManager.clearFocus()
+                    if (email.value.isNotEmpty() && password.value.isNotEmpty() && name.value.isNotEmpty()) {
+                        onRegisterClicked(email.value, password.value, name.value)
+                    }
+                }
+            )
         )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
         Button(
             onClick = {
                 onRegisterClicked(email.value, password.value, name.value)
-            }, modifier = Modifier.fillMaxWidth(),
-            enabled = email.value.isNotEmpty() && password.value.isNotEmpty() && name.value.isNotEmpty()
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp),
+            enabled = email.value.isNotEmpty() && password.value.isNotEmpty() && name.value.isNotEmpty(),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = tealColor,
+                disabledContainerColor = tealColor.copy(alpha = 0.5f)
+            ),
+            shape = RoundedCornerShape(20.dp)
         ) {
-            Text(text = stringResource(id = R.string.register))
+            Text(
+                text = stringResource(id = R.string.register),
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.Bold
+            )
         }
-        Text(text = stringResource(id = R.string.alread_have_an_account), modifier = Modifier
-            .padding(8.dp)
-            .clickable {
-                onSignInClick()
-            })
+
+        Row(
+            modifier = Modifier.padding(top = 16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(text = stringResource(id = R.string.alread_have_an_account) + " ")
+            Text(
+                text = stringResource(id = R.string.login),
+                color = tealColor,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.clickable { onSignInClick() }
+            )
+        }
     }
 }
